@@ -24,11 +24,11 @@ const LanguageSwitcher = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="fixed top-6 right-6 z-50 font-figtree">
+    <div ref={containerRef} className="relative">
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="flex items-center justify-center w-10 h-10 rounded-full bg-white border border-border text-foreground-primary hover:text-foreground-accent transition-colors"
+        className="flex items-center justify-center w-10 h-10 rounded-full bg-background-secondary border border-border text-foreground-primary hover:text-foreground-accent transition-colors"
         aria-label={t('language.switch')}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
@@ -39,7 +39,7 @@ const LanguageSwitcher = () => {
       {isOpen && (
         <ul
           role="listbox"
-          className="absolute right-0 mt-2 min-w-[140px] bg-white border border-border rounded-lg overflow-hidden shadow-sm"
+          className="absolute right-0 mt-2 min-w-[140px] bg-background-secondary border border-border rounded-lg overflow-hidden shadow-sm"
         >
           {LOCALES.map((lang) => (
             <li

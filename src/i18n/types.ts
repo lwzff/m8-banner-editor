@@ -39,4 +39,8 @@ export type Translation = {
     fr: string;
     en: string;
   };
+  theme: {
+    switchToDark: string;
+    switchToLight: string;
+  };
 };

@@ -37,7 +37,7 @@ const ArtistsCard = (props: ArtistsCardProps) => {
   const { t } = useTranslation();
 
   return (
-    <div className="relative order-3 xl:order-none xl:max-w-[170px] min-w-[170px] bg-white border border-border rounded-lg px-5 pt-4 flex flex-col gap-3 font-figtree xl:max-h-[442px] xl:overflow-y-auto">
+    <div className="relative order-3 xl:order-none xl:max-w-[170px] min-w-[170px] bg-background-secondary border border-border rounded-lg px-5 pt-4 flex flex-col gap-3 font-figtree xl:max-h-[442px] xl:overflow-y-auto">
       <h2 className="text-foreground-primary text-lg font-bold font-cal">
         {t('artists.title')}
       </h2>
@@ -84,7 +84,7 @@ const ArtistsCard = (props: ArtistsCardProps) => {
           </div>
         ))}
       </div>
-      <div className="sticky bottom-0 w-full h-10 shrink-0 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
+      <div className="sticky bottom-0 w-full h-10 shrink-0 bg-gradient-to-t from-background-secondary to-transparent pointer-events-none z-10" />
     </div>
   );
 };

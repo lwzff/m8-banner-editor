@@ -23,7 +23,7 @@ const PlaygroundCard = (props: PlaygroundCardProps) => {
   const roleInput = getInput(props.selectedBanner.group, 'role');
 
   return (
-    <div className="order-2 xl:order-none min-w-[280px] bg-white border border-border rounded-lg px-5 pt-4 pb-5 flex flex-col gap-3 font-figtree">
+    <div className="order-2 xl:order-none min-w-[280px] bg-background-secondary border border-border rounded-lg px-5 pt-4 pb-5 flex flex-col gap-3 font-figtree">
       <h2 className="text-foreground-primary text-lg font-bold font-figtree">
         {t('playground.title')}
       </h2>

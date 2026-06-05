@@ -39,4 +39,8 @@ export const fr: Translation = {
     fr: 'Français',
     en: 'English',
   },
+  theme: {
+    switchToDark: 'Activer le mode sombre',
+    switchToLight: 'Activer le mode clair',
+  },
 };

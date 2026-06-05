@@ -27,7 +27,8 @@ body {
   background-color: var(--bg-primary);
 }
 
-:root {
+:root,
+[data-theme='light'] {
   --bg-primary: #f5f8fb;
   --bg-secondary: #ffffff;
   --bg-accent: rgba(233, 41, 140, 0.2);
@@ -38,4 +39,72 @@ body {
   --text-secondary: #bbc5d4;
   --text-accent: #e9298c;
   --text-accent-hover: #d4016f;
+
+  --preview-footer-bg: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg-primary: #0f1218;
+  --bg-secondary: #1a1f28;
+  --bg-accent: rgba(233, 41, 140, 0.18);
+
+  --border-color: rgba(255, 255, 255, 0.12);
+
+  --text-primary: #f0f2f5;
+  --text-secondary: #6b7a8f;
+  --text-accent: #f04da8;
+  --text-accent-hover: #ff6bbb;
+
+  --preview-footer-bg: rgba(255, 255, 255, 0.08);
+}
+
+.preview-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url(/src/assets/images/grid-pattern.png);
+  background-repeat: repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+[data-theme='dark'] .preview-grid::before {
+  opacity: 0.35;
+}
+
+.preview-grid > * {
+  position: relative;
+  z-index: 1;
+}
+
+.preview-footer {
+  background-color: var(--preview-footer-bg);
+}
+
+[data-theme='dark'] .bg-white {
+  background-color: var(--bg-secondary);
+}
+
+[data-theme='dark'] .hover\:bg-gray-100:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .active\:bg-gray-200:active {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme='dark'] .hover\:text-black:hover {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .focus\:ring-gray-200:focus {
+  --tw-ring-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme='dark'] [data-testid='three-dots-svg'] circle {
+  fill: var(--text-secondary);
 }
