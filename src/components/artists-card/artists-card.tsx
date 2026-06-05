@@ -2,6 +2,7 @@ import { type Banner, type Artist } from '../../utils/types';
 import { ARTISTS } from '../../utils/constants';
 import { memo } from 'react';
 import ArrowIcon from '../../assets/icons/arrow-icon';
+import { useTranslation } from '../../i18n';
 
 type ArtistsCardProps = {
   onBannerChange: (banner: Banner) => void;
@@ -33,10 +34,12 @@ const ArtistImage = memo(
 );
 
 const ArtistsCard = (props: ArtistsCardProps) => {
+  const { t } = useTranslation();
+
   return (
     <div className="relative order-3 xl:order-none xl:max-w-[170px] min-w-[170px] bg-white border border-border rounded-lg px-5 pt-4 flex flex-col gap-3 font-figtree xl:max-h-[442px] xl:overflow-y-auto">
       <h2 className="text-foreground-primary text-lg font-bold font-cal">
-        Artistes
+        {t('artists.title')}
       </h2>
       <div className="flex flex-row flex-wrap gap-3">
         {ARTISTS.map((artistGroup) => (

@@ -7,6 +7,7 @@ import PlaygroundCard from './components/playground-card';
 import PreviewCard from './components/preview-card';
 import Header from './components/header';
 import Footer from './components/footer';
+import LanguageSwitcher from './components/language-switcher';
 import { Banner } from './utils/types';
 import { getInputs } from './utils/utils';
 
@@ -26,6 +27,7 @@ const App = () => {
 
   return (
     <>
+      <LanguageSwitcher />
       <div className="h-screen flex flex-col ">
         <Header />
 

@@ -1,6 +1,9 @@
 import { GithubIcon } from '../../assets/icons';
+import { useTranslation } from '../../i18n';
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="p-4 text-center text-foreground-secondary font-figtree text-sm mb-2">
       <div className="flex justify-center mb-1">
@@ -13,8 +16,8 @@ const Footer = () => {
         </a>
       </div>
       <p>
-        Outil 100% gratuit. <br className="sm:hidden" />
-        Projet soutenu par{' '}
+        {t('footer.freeTool')} <br className="sm:hidden" />
+        {t('footer.supportedBy')}{' '}
         <a
           href="https://thegreensuits.fr"
           target="_blank"

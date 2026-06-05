@@ -8,6 +8,7 @@ import useImageUtils from '../../hooks/useImageUtils';
 import { useFontLoader } from '../../hooks/useFontLoader';
 import { type Banner } from '../../utils/types';
 import { BANNER_FONTS } from '../../utils/constants';
+import { useTranslation } from '../../i18n';
 
 type PreviewCardProps = {
   username: string;
@@ -18,6 +19,7 @@ type PreviewCardProps = {
 };
 
 const PreviewCard = (props: PreviewCardProps) => {
+  const { t } = useTranslation();
   const [image, imageStatus] = useImage(props.selectedBanner.url);
   const [containerWidth, setContainerWidth] = useState(0);
   const [lastValidDimensions, setLastValidDimensions] = useState({
@@ -74,7 +76,7 @@ const PreviewCard = (props: PreviewCardProps) => {
   return (
     <div className="order-1 xl:order-none w-full xl:w-[80%] rounded-lg bg-grid bg-repeat bg-center bg-cover relative font-figtree flex flex-col h-full overflow-x-hidden">
       <h2 className="text-foreground-primary text-lg font-bold font-cal text-center pt-4">
-        Prévisualisation
+        {t('preview.title')}
       </h2>
       <div className="preview-container flex-grow flex justify-center items-center my-8 mx-4 sm:mx-24 max-w-full">
         <div
@@ -193,19 +195,19 @@ const PreviewCard = (props: PreviewCardProps) => {
       </div>
       <div className="flex justify-between items-center bg-black/15 px-5 py-5 rounded-b-lg mt-auto border border-transparent">
         <p className="text-foreground-primary text-sm">
-          Taille : <span className="font-bold">1500x500</span>
+          {t('preview.size')} <span className="font-bold">1500x500</span>
         </p>
         <div className="flex gap-2 text-sm">
           <Button
             variant="primary"
             icon={<DownloadIcon />}
-            text="Télécharger"
+            text={t('preview.download')}
             onClick={props.onDownload}
           />
           <Button
             variant="secondary"
             icon={<CopyIcon />}
-            text="Copier"
+            text={t('preview.copy')}
             onClick={props.onCopy}
           />
         </div>

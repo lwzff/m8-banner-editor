@@ -18,6 +18,6 @@ Please refer to the [LICENSE.md](./LICENSE.md) file for details.
 ### 🗺️ RoadMap
 
 - ♾️ Add various artists and banners
-- Website translation to EN
+- ✅ Website translation to EN
 - Migration to Next for SEO
 - Add themes 

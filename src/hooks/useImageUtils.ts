@@ -1,5 +1,6 @@
 import toast from 'react-hot-toast';
 import type { TextAttributes, Banner } from '../utils/types';
+import { useTranslation } from '../i18n';
 
 type UseImageUtilsProps = {
   username?: string;
@@ -7,6 +8,7 @@ type UseImageUtilsProps = {
 };
 
 const useImageUtils = ({ username, artist }: UseImageUtilsProps = {}) => {
+  const { t } = useTranslation();
   const BASE_WIDTH = 1500;
   const BASE_HEIGHT = 500;
   const ASPECT_RATIO = BASE_WIDTH / BASE_HEIGHT;
@@ -108,11 +110,11 @@ const useImageUtils = ({ username, artist }: UseImageUtilsProps = {}) => {
         ]);
       }
 
-      toast.success('Bannière copiée dans le presse-papiers', {
+      toast.success(t('toast.copySuccess'), {
         position: 'bottom-center',
       });
     } catch {
-      toast.error('Erreur lors de la copie', {
+      toast.error(t('toast.copyError'), {
         position: 'bottom-center',
       });
     }

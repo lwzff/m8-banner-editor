@@ -4,6 +4,7 @@ import TextInput from '../text-input';
 import type { Banner, Artist, SelectInput } from '../../utils/types';
 import { firstUpperCase, getInput, inputExist } from '../../utils/utils';
 import Select from '../select-input';
+import { useTranslation } from '../../i18n';
 
 type PlaygroundCardProps = {
   username: string;
@@ -17,22 +18,23 @@ type PlaygroundCardProps = {
 };
 
 const PlaygroundCard = (props: PlaygroundCardProps) => {
+  const { t } = useTranslation();
   const usernameInput = getInput(props.selectedBanner.group, 'username');
   const roleInput = getInput(props.selectedBanner.group, 'role');
 
   return (
     <div className="order-2 xl:order-none min-w-[280px] bg-white border border-border rounded-lg px-5 pt-4 pb-5 flex flex-col gap-3 font-figtree">
       <h2 className="text-foreground-primary text-lg font-bold font-figtree">
-        Playground
+        {t('playground.title')}
       </h2>
       <div className="flex flex-col gap-1">
         {usernameInput && (
           <TextInput
-            label="Ton pseudo"
+            label={t('playground.username')}
             helperText={
               usernameInput?.type === 'text' && usernameInput.maxChars
-                ? `Maximum ${usernameInput.maxChars} caractères`
-                : "Longueur limitée à l'espace disponible"
+                ? t('playground.maxChars', { count: usernameInput.maxChars })
+                : t('playground.lengthLimited')
             }
             maxLength={
               usernameInput?.type === 'text' && usernameInput.maxChars
@@ -50,11 +52,11 @@ const PlaygroundCard = (props: PlaygroundCardProps) => {
 
         {roleInput && (
           <TextInput
-            label="Ton rôle"
+            label={t('playground.role')}
             helperText={
               roleInput?.type === 'text' && roleInput.maxChars
-                ? `Maximum ${roleInput.maxChars} caractères`
-                : "Longueur limitée à l'espace disponible"
+                ? t('playground.maxChars', { count: roleInput.maxChars })
+                : t('playground.lengthLimited')
             }
             maxLength={
               roleInput?.type === 'text' && roleInput.maxChars
@@ -70,7 +72,7 @@ const PlaygroundCard = (props: PlaygroundCardProps) => {
         {inputExist(props.selectedBanner.group, 'supporter-level') && (
           <Select
             id="supporter-level"
-            label="Niveau de soutien"
+            label={t('playground.supporterLevel')}
             options={
               props.inputs.find(
                 (input): input is SelectInput =>
@@ -91,7 +93,7 @@ const PlaygroundCard = (props: PlaygroundCardProps) => {
         <Button
           variant="primary"
           icon={<EraseIcon />}
-          text="Annuler les modifications"
+          text={t('playground.reset')}
           onClick={() => {
             props.onUsernameChange('');
             props.onRoleChange('');
